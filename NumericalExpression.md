@@ -48,3 +48,11 @@ $$
 $$
     w = \frac{1}{4}
 $$  
+
+logistic regression  
+$$
+    y = w_0 x + w_1
+$$  
+$$
+    y = \sigma (w_0 x + w_1) = \frac{1}{1 + exp\{-(w_0 x + w_1)\}}
+$$  
