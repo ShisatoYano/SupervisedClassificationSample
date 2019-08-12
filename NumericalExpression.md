@@ -21,3 +21,30 @@ $$
         \end{array}
     \right)
 $$
+
+conditional probability  
+$$
+    P(t=1|x)
+$$  
+
+simple likelihood model  
+$$
+    P(t=1|x)=w
+$$  
+$$
+    P(\bm{T}=0,0,0,1|x)=(1-w^3)w
+$$  
+
+log likelihood  
+$$
+    log P = log \{(1-w)^3 w\}=3log(1-w) + logw
+$$  
+$$
+    \frac{\partial}{\partial w} log P = \frac{\partial}{\partial w}[3log(1-w) + logw] = 0
+$$  
+$$
+    3 \frac{-1}{1-w} + \frac{1}{w} = 0
+$$  
+$$
+    w = \frac{1}{4}
+$$  
