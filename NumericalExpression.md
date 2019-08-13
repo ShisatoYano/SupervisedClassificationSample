@@ -73,3 +73,32 @@ cross entropy error function
 $$
     E(\bm{W}) = -\frac {1}{N} log P(\bm{T}|\bm{X}) = -\frac {1}{N} \sum_{n=0}^{N-1} \{ t_n log y_n + (1-t_n) log (1-y_n) \}
 $$  
+
+Gradient method of cross entropy error  
+$$
+    \frac{\partial}{\partial w_0}E(\bm{W}) = \frac{1}{N}\frac{\partial}{\partial w_0}\sum_{n=0}^{N-1}E_n(\bm{W}) = \frac{1}{N}\sum_{n=0}^{N-1}\frac{\partial}{\partial w_0}E_n(\bm{W})
+$$  
+$$
+    y_n = \sigma(a_n) = \frac{1}{1 + exp(-a_n)} \\
+    a_n = w_0 x_n + w_1
+$$  
+$$
+    \frac{\partial E_n}{\partial w_0} = \frac{\partial E_n}{\partial y_n} \frac{\partial y_n}{\partial a_n} \frac{\partial a_n}{\partial w_0}
+$$  
+$$
+    \frac{\partial E_n}{\partial y_n} = -t_n\frac{\partial}{\partial y_n}logy_n - (1-t_n)\frac{\partial}{\partial y_n}log(1-y_n) \\
+    = - \frac{t_n}{y_n} + \frac{1-t_n}{1-y_n}
+$$  
+$$
+    \frac{\partial y_n}{\partial a_n} = \frac{\partial}{\partial a_n}\sigma(a_n)=\sigma(a_n)\{1-\sigma(a_n)\} = y_n(1 - y_n)
+$$  
+$$
+    \frac{\partial a_n}{\partial w_0} = \frac{\partial}{\partial w_0}(w_0 x_n + w_1) = x_n
+$$  
+$$
+    \frac{\partial E_n}{\partial w_0} = (-\frac{t_n}{y_n} + \frac{1-t_n}{1-y_n})y_n(1-y_n)x_n = (y_n - t_n)x_n \\
+    \frac{\partial E}{\partial w_0} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_n
+$$  
+$$
+    \frac{\partial E}{\partial w_1} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)
+$$  
