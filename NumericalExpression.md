@@ -109,17 +109,7 @@ $$
     a = w_0 x_0 + w_1 x_1 + w_2
 $$  
 $$
-    y = \sigma (w_0 x + w_1) = \frac{1}{1 + exp\{-(w_0 x + w_1)\}}
-$$  
-$$
-    y = \sigma (w_0 x + w_1) = P(t=1|x)
-$$  
-$$
-    P(t|x) = y^t (1-y)^{1-t}
-$$  
-$$
-    P(\bm{T}|\bm{X}) = \prod_{n=0}^{N-1} P(t_n|x_n) = \prod_{n=0}^{N-1} {y_n}^{t_n} (1-y_n)^{1-t_n}
-$$  
-$$
-    log P(\bm{T}|\bm{X}) = \sum_{n=0}^{N-1} \{ t_n log y_n + (1-t_n) log (1-y_n) \}
+    \frac{\partial E}{\partial w_0} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_{n0} \\
+    \frac{\partial E}{\partial w_1} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_{n1} \\
+    \frac{\partial E}{\partial w_2} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)
 $$  
