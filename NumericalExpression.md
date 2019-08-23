@@ -79,15 +79,16 @@ $$
     \frac{\partial}{\partial w_0}E(\bm{W}) = \frac{1}{N}\frac{\partial}{\partial w_0}\sum_{n=0}^{N-1}E_n(\bm{W}) = \frac{1}{N}\sum_{n=0}^{N-1}\frac{\partial}{\partial w_0}E_n(\bm{W})
 $$  
 $$
-    y_n = \sigma(a_n) = \frac{1}{1 + exp(-a_n)} \\
-    a_n = w_0 x_n + w_1
+    y_n = \sigma(a_n) = \frac{1}{1 + exp(-a_n)}
 $$  
+$$
+    a_n = w_0 x_n + w_1
+$$
 $$
     \frac{\partial E_n}{\partial w_0} = \frac{\partial E_n}{\partial y_n} \frac{\partial y_n}{\partial a_n} \frac{\partial a_n}{\partial w_0}
 $$  
 $$
-    \frac{\partial E_n}{\partial y_n} = -t_n\frac{\partial}{\partial y_n}logy_n - (1-t_n)\frac{\partial}{\partial y_n}log(1-y_n) \\
-    = - \frac{t_n}{y_n} + \frac{1-t_n}{1-y_n}
+    \frac{\partial E_n}{\partial y_n} = -t_n\frac{\partial}{\partial y_n}logy_n - (1-t_n)\frac{\partial}{\partial y_n}log(1-y_n) = - \frac{t_n}{y_n} + \frac{1-t_n}{1-y_n}
 $$  
 $$
     \frac{\partial y_n}{\partial a_n} = \frac{\partial}{\partial a_n}\sigma(a_n)=\sigma(a_n)\{1-\sigma(a_n)\} = y_n(1 - y_n)
@@ -96,20 +97,57 @@ $$
     \frac{\partial a_n}{\partial w_0} = \frac{\partial}{\partial w_0}(w_0 x_n + w_1) = x_n
 $$  
 $$
-    \frac{\partial E_n}{\partial w_0} = (-\frac{t_n}{y_n} + \frac{1-t_n}{1-y_n})y_n(1-y_n)x_n = (y_n - t_n)x_n \\
-    \frac{\partial E}{\partial w_0} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_n
+    \frac{\partial E_n}{\partial w_0} = (-\frac{t_n}{y_n} + \frac{1-t_n}{1-y_n})y_n(1-y_n)x_n = (y_n - t_n)x_n
 $$  
+$$
+    \frac{\partial E}{\partial w_0} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_n
+$$
 $$
     \frac{\partial E}{\partial w_1} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)
 $$  
 
 logistic regression on 2 dimension  
 $$
-    y = \sigma (a) \\
-    a = w_0 x_0 + w_1 x_1 + w_2
+    y = \sigma (a),a = w_0 x_0 + w_1 x_1 + w_2
 $$  
 $$
-    \frac{\partial E}{\partial w_0} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_{n0} \\
-    \frac{\partial E}{\partial w_1} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_{n1} \\
+    \frac{\partial E}{\partial w_0} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_{n0}
+$$  
+$$
+    \frac{\partial E}{\partial w_1} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)x_{n1}
+$$
+$$
     \frac{\partial E}{\partial w_2} = \frac{1}{N}\sum_{n=0}^{N-1}(y_n-t_n)
+$$
+
+logistic regression for 3 classes classification  
+$$
+    a_k = w_{k0} x_0 + w_{k1} x_1 + w_{k2} (k=0,1,2)
+$$  
+$$
+    a_k = w_{k0} x_0 + w_{k1} x_1 + w_{k2} x_2 = \sum_{i=0}^{D}w_{ki}x_i
+$$  
+$$
+    u = exp(a_0) + exp(a_1) + exp(a_2) = \sum_{k=0}^{K-1}exp(a_k)
+$$  
+$$
+    y_k = \frac{exp(a_k)}{u}
+$$  
+$$
+    \bm{W} = \left[
+    \begin{array}{ccc}
+      W_{00} & W_{10} & W_{20} \\
+      W_{01} & W_{11} & W_{21} \\
+      W_{02} & W_{12} & W_{22}
+    \end{array}
+  \right]
+$$  
+$$
+    P(\bm{t}=[1,0,0]|\bm{x})
+$$  
+$$
+    P(\bm{t}=[0,1,0]|\bm{x})
+$$  
+$$
+    P(\bm{t}=[0,0,1]|\bm{x})
 $$  
