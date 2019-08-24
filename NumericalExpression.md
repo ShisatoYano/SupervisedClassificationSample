@@ -151,3 +151,15 @@ $$
 $$
     P(\bm{t}=[0,0,1]|\bm{x})
 $$  
+$$
+    P(\bm{t}|\bm{x})=y_0^{t_0}y_1^{t_1}y_2^{t_2}
+$$  
+$$
+    P(\bm{T}|\bm{X}) = \prod_{n=0}^{N-1} P(t_n|x_n) = \prod_{n=0}^{N-1} {y_{n0}}^{t_{n0}} {y_{n1}}^{t_{n1}} {y_{n2}}^{t_{n2}} = \prod_{n=0}^{N-1} \prod_{k=0}^{K-1} {y_{nk}}^{t_{nk}}
+$$  
+$$
+    E(\bm{W}) = -\frac {1}{N} log P(\bm{T}|\bm{X}) = -\frac {1}{N} \prod_{n=0}^{N-1} log P(t_n|x_n) = -\frac {1}{N} \sum_{n=0}^{N-1} \sum_{k=0}^{K-1} t_{nk} log y_{nk}
+$$  
+$$
+    \frac{\partial E}{\partial w_{ki}} = \frac{1}{N}\sum_{n=0}^{N-1}(y_{nk}-t_{nk})x_{ni}
+$$  
